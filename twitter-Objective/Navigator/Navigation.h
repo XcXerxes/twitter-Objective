@@ -1,8 +1,8 @@
 //
-//  NavigationTabBar.h
+//  Navigation.h
 //  twitter-Objective
 //
-//  Created by xiacan on 2018/12/8.
+//  Created by xiacan on 2018/12/10.
 //  Copyright © 2018 iotek. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NavigationTabBar : UITabBar
+@interface Navigation : UINavigationController
 
 @end
 
