@@ -16,6 +16,11 @@
 		0D738E7321BEA2EE0012D5F2 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D738E7221BEA2EE0012D5F2 /* TabBarController.m */; };
 		0D738E7621BEA5DC0012D5F2 /* Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D738E7521BEA5DC0012D5F2 /* Navigation.m */; };
 		635A7AF87569C290348D6DFD /* libPods-twitter-Objective.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9B6AC2889477FACBF8BD2 /* libPods-twitter-Objective.a */; };
+		CFF9D53A21C1ECAE0078A297 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9D53921C1ECAE0078A297 /* BaseViewController.m */; };
+		CFF9D53D21C1ECC20078A297 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9D53C21C1ECC20078A297 /* HomeViewController.m */; };
+		CFF9D54021C1ECE10078A297 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9D53F21C1ECE10078A297 /* FindViewController.m */; };
+		CFF9D54421C1ED070078A297 /* TicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9D54321C1ED070078A297 /* TicketViewController.m */; };
+		CFF9D54821C1ED1C0078A297 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9D54721C1ED1C0078A297 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,17 @@
 		80E9B6AC2889477FACBF8BD2 /* libPods-twitter-Objective.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-twitter-Objective.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A5DE61BAB1727E0B043140C /* Pods-twitter-Objective.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter-Objective.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitter-Objective/Pods-twitter-Objective.release.xcconfig"; sourceTree = "<group>"; };
 		AAF9601FC598078404E54414 /* Pods-twitter-Objective.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter-Objective.debug.xcconfig"; path = "Pods/Target Support Files/Pods-twitter-Objective/Pods-twitter-Objective.debug.xcconfig"; sourceTree = "<group>"; };
+		CFF9D53821C1ECAE0078A297 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		CFF9D53921C1ECAE0078A297 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		CFF9D53B21C1ECC20078A297 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		CFF9D53C21C1ECC20078A297 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		CFF9D53E21C1ECE10078A297 /* FindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
+		CFF9D53F21C1ECE10078A297 /* FindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
+		CFF9D54221C1ED070078A297 /* TicketViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketViewController.h; sourceTree = "<group>"; };
+		CFF9D54321C1ED070078A297 /* TicketViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketViewController.m; sourceTree = "<group>"; };
+		CFF9D54621C1ED1C0078A297 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		CFF9D54721C1ED1C0078A297 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		CFF9D54A21C1F5590078A297 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +87,7 @@
 		0D3522D721BB68950077B579 /* twitter-Objective */ = {
 			isa = PBXGroup;
 			children = (
+				CFF9D54921C1F5420078A297 /* Utils */,
 				0D3522F021BB6EC90077B579 /* New Group */,
 				0D3522EF21BB6EBC0077B579 /* Network */,
 				0D3522EE21BB6E9F0077B579 /* modules */,
@@ -90,7 +107,13 @@
 		0D3522EE21BB6E9F0077B579 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				CFF9D54521C1ED0D0078A297 /* Profile - 我的 */,
+				CFF9D54121C1ECE50078A297 /* Ticket - 票夹 */,
+				CFF9D53621BF932F0078A297 /* Find - 发现 */,
+				CFF9D53521BF931A0078A297 /* Home - 推荐 */,
 				0D3522F121BB6F540077B579 /* Navigator */,
+				CFF9D53821C1ECAE0078A297 /* BaseViewController.h */,
+				CFF9D53921C1ECAE0078A297 /* BaseViewController.m */,
 			);
 			name = modules;
 			sourceTree = "<group>";
@@ -135,6 +158,50 @@
 				8A5DE61BAB1727E0B043140C /* Pods-twitter-Objective.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CFF9D53521BF931A0078A297 /* Home - 推荐 */ = {
+			isa = PBXGroup;
+			children = (
+				CFF9D53B21C1ECC20078A297 /* HomeViewController.h */,
+				CFF9D53C21C1ECC20078A297 /* HomeViewController.m */,
+			);
+			name = "Home - 推荐";
+			sourceTree = "<group>";
+		};
+		CFF9D53621BF932F0078A297 /* Find - 发现 */ = {
+			isa = PBXGroup;
+			children = (
+				CFF9D53E21C1ECE10078A297 /* FindViewController.h */,
+				CFF9D53F21C1ECE10078A297 /* FindViewController.m */,
+			);
+			name = "Find - 发现";
+			sourceTree = "<group>";
+		};
+		CFF9D54121C1ECE50078A297 /* Ticket - 票夹 */ = {
+			isa = PBXGroup;
+			children = (
+				CFF9D54221C1ED070078A297 /* TicketViewController.h */,
+				CFF9D54321C1ED070078A297 /* TicketViewController.m */,
+			);
+			path = "Ticket - 票夹";
+			sourceTree = "<group>";
+		};
+		CFF9D54521C1ED0D0078A297 /* Profile - 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				CFF9D54621C1ED1C0078A297 /* ProfileViewController.h */,
+				CFF9D54721C1ED1C0078A297 /* ProfileViewController.m */,
+			);
+			name = "Profile - 我的";
+			sourceTree = "<group>";
+		};
+		CFF9D54921C1F5420078A297 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CFF9D54A21C1F5590078A297 /* Constants.h */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,10 +297,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D3522DD21BB68950077B579 /* ViewController.m in Sources */,
+				CFF9D53A21C1ECAE0078A297 /* BaseViewController.m in Sources */,
 				0D738E7321BEA2EE0012D5F2 /* TabBarController.m in Sources */,
+				CFF9D54421C1ED070078A297 /* TicketViewController.m in Sources */,
+				CFF9D54821C1ED1C0078A297 /* ProfileViewController.m in Sources */,
 				0D3522E821BB68970077B579 /* main.m in Sources */,
 				0D738E7621BEA5DC0012D5F2 /* Navigation.m in Sources */,
+				CFF9D53D21C1ECC20078A297 /* HomeViewController.m in Sources */,
 				0D3522DA21BB68950077B579 /* AppDelegate.m in Sources */,
+				CFF9D54021C1ECE10078A297 /* FindViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T9LR42625;
 				INFOPLIST_FILE = "twitter-Objective/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,6 +470,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T9LR42625;
 				INFOPLIST_FILE = "twitter-Objective/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
