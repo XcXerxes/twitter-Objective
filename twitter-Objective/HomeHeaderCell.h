@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeHeaderCell : UICollectionViewCell
-
+-(void)initData:(NSDictionary *)cateInfo;
 @end
 
 NS_ASSUME_NONNULL_END

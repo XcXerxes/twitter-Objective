@@ -46,6 +46,7 @@ UICollectionViewDataSource
     [locationBtn setImage:[UIImage imageNamed:@"location"] forState:UIControlStateNormal];
     // 设置按钮的文字
     [locationBtn setTitle:@"北京" forState:UIControlStateNormal];
+    locationBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     locationBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
     locationBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
     [locationBtn setTitleColor:ColorThemeBlack forState:UIControlStateNormal];
@@ -84,6 +85,7 @@ UICollectionViewDataSource
 -(void) initCollectionView {
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[UICollectionViewFlowLayout new]];
     _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    _collectionView.backgroundColor = ColorWhite;
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     [_collectionView registerClass:[HomeHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeHeaderId];

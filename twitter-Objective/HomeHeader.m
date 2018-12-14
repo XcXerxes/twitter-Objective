@@ -54,6 +54,7 @@ UICollectionViewDelegateFlowLayout
     _cateCollectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _cateCollectionView.delegate = self;
     _cateCollectionView.dataSource = self;
+    _cateCollectionView.backgroundColor = ColorWhite;
     [_cateCollectionView registerClass:[HomeHeaderCell class] forCellWithReuseIdentifier:cellId];
     [self addSubview:_cateCollectionView];
 }
@@ -72,21 +73,14 @@ UICollectionViewDelegateFlowLayout
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HomeHeaderCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     NSDictionary *item = self.cateArray[indexPath.row];
-    NSString *iconName = [item objectForKey: @"iconName"];
-    NSString *title = [item objectForKey:@"title"];
-    NSLog(@"title======%@",title);
-    UIImageView *iconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed: iconName]];
-    UIView *cellView = [[UIView alloc] initWithFrame:cell.bounds];
-    UILabel *titleLabel = [UILabel new];
-    titleLabel.text = title;
-    titleLabel.textColor = ColorWhite;
-    [cellView addSubview:titleLabel];
-    NSLog(@"cellView=====%@", cellView);
-    [cell.contentView addSubview:cellView];
+    [cell initData:item];
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.bounds.size.width / 4, self.bounds.size.width / 4);
+    return CGSizeMake(self.bounds.size.width / 4, self.bounds.size.width / 5);
 }
+
+// 初始化简要
+
 @end
