@@ -9,11 +9,21 @@
 #import "HomeViewController.h"
 #import "Masonry.h"
 #import "Constants.h"
+#import "HomeHeader.h"
+
+NSString * const homeHeaderId = @"homeHeaderId";
+NSString * const homeCellId = @"homeCellId";
 
 @interface HomeViewController ()
+<
+UICollectionViewDelegate,
+UICollectionViewDelegateFlowLayout,
+UICollectionViewDataSource
+>
 @property (nonatomic, strong) UIBarButtonItem *leftBtn;
 @property (nonatomic, strong) UIBarButtonItem *rightQRBtn;
 @property (nonatomic, strong) UIBarButtonItem *rightNoticeBtn;
+@property (nonatomic, strong) UICollectionView *collectionView;
 @end
 
 @implementation HomeViewController
@@ -23,6 +33,10 @@
     // Do any additional setup after loading the view.
     // 设置navigationItem
     [self initNavigationItems];
+    // 设置轮播图
+    // [self initSwipeView];
+    // 初始化collectionView
+    [self initCollectionView];
 }
 
 -(void) initNavigationItems {
@@ -64,6 +78,41 @@
 // 导航点击事件
 -(void) navigationPress:(UIBarButtonItem *)btn {
     NSLog(@"点击了....");
+}
+
+// 初始化collectionView
+-(void) initCollectionView {
+    _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[UICollectionViewFlowLayout new]];
+    _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    [_collectionView registerClass:[HomeHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeHeaderId];
+    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:homeCellId];
+    [self.view addSubview:_collectionView];
+    
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 7;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:homeCellId forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor orangeColor];
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(ScreenWidth, 150);
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    HomeHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeHeaderId forIndexPath:indexPath];
+    return header;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(ScreenWidth, 500);
 }
 
 /*

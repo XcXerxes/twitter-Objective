@@ -16,6 +16,9 @@
 		0D738E7321BEA2EE0012D5F2 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D738E7221BEA2EE0012D5F2 /* TabBarController.m */; };
 		0D738E7621BEA5DC0012D5F2 /* Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D738E7521BEA5DC0012D5F2 /* Navigation.m */; };
 		635A7AF87569C290348D6DFD /* libPods-twitter-Objective.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9B6AC2889477FACBF8BD2 /* libPods-twitter-Objective.a */; };
+		CF845CEF21C35CC9005319CD /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF845CEE21C35CC9005319CD /* SwipeView.m */; };
+		CF845CF221C382A3005319CD /* HomeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CF845CF121C382A3005319CD /* HomeHeader.m */; };
+		CF845CFB21C39FED005319CD /* HomeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF845CFA21C39FED005319CD /* HomeHeaderCell.m */; };
 		CFF9D53A21C1ECAE0078A297 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9D53921C1ECAE0078A297 /* BaseViewController.m */; };
 		CFF9D53D21C1ECC20078A297 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9D53C21C1ECC20078A297 /* HomeViewController.m */; };
 		CFF9D54021C1ECE10078A297 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9D53F21C1ECE10078A297 /* FindViewController.m */; };
@@ -41,6 +44,12 @@
 		80E9B6AC2889477FACBF8BD2 /* libPods-twitter-Objective.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-twitter-Objective.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A5DE61BAB1727E0B043140C /* Pods-twitter-Objective.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter-Objective.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitter-Objective/Pods-twitter-Objective.release.xcconfig"; sourceTree = "<group>"; };
 		AAF9601FC598078404E54414 /* Pods-twitter-Objective.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter-Objective.debug.xcconfig"; path = "Pods/Target Support Files/Pods-twitter-Objective/Pods-twitter-Objective.debug.xcconfig"; sourceTree = "<group>"; };
+		CF845CED21C35CC9005319CD /* SwipeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
+		CF845CEE21C35CC9005319CD /* SwipeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
+		CF845CF021C382A3005319CD /* HomeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHeader.h; sourceTree = "<group>"; };
+		CF845CF121C382A3005319CD /* HomeHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeHeader.m; sourceTree = "<group>"; };
+		CF845CF921C39FED005319CD /* HomeHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHeaderCell.h; sourceTree = "<group>"; };
+		CF845CFA21C39FED005319CD /* HomeHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderCell.m; sourceTree = "<group>"; };
 		CFF9D53821C1ECAE0078A297 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		CFF9D53921C1ECAE0078A297 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		CFF9D53B21C1ECC20078A297 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -165,6 +174,12 @@
 			children = (
 				CFF9D53B21C1ECC20078A297 /* HomeViewController.h */,
 				CFF9D53C21C1ECC20078A297 /* HomeViewController.m */,
+				CF845CED21C35CC9005319CD /* SwipeView.h */,
+				CF845CEE21C35CC9005319CD /* SwipeView.m */,
+				CF845CF021C382A3005319CD /* HomeHeader.h */,
+				CF845CF121C382A3005319CD /* HomeHeader.m */,
+				CF845CF921C39FED005319CD /* HomeHeaderCell.h */,
+				CF845CFA21C39FED005319CD /* HomeHeaderCell.m */,
 			);
 			name = "Home - 推荐";
 			sourceTree = "<group>";
@@ -301,10 +316,13 @@
 				0D738E7321BEA2EE0012D5F2 /* TabBarController.m in Sources */,
 				CFF9D54421C1ED070078A297 /* TicketViewController.m in Sources */,
 				CFF9D54821C1ED1C0078A297 /* ProfileViewController.m in Sources */,
+				CF845CF221C382A3005319CD /* HomeHeader.m in Sources */,
 				0D3522E821BB68970077B579 /* main.m in Sources */,
 				0D738E7621BEA5DC0012D5F2 /* Navigation.m in Sources */,
 				CFF9D53D21C1ECC20078A297 /* HomeViewController.m in Sources */,
 				0D3522DA21BB68950077B579 /* AppDelegate.m in Sources */,
+				CF845CEF21C35CC9005319CD /* SwipeView.m in Sources */,
+				CF845CFB21C39FED005319CD /* HomeHeaderCell.m in Sources */,
 				CFF9D54021C1ECE10078A297 /* FindViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

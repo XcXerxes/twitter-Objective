@@ -12,6 +12,11 @@
 
 #endif /* Constants_h */
 
+// size
+#define ScreenBounds [UIScreen mainScreen].bounds
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+
 // color
 #define RGBA(R, G, B, A) [UIColor colorWithRed: R/255.0 green: G/255.0 blue: B/255.0 alpha: A]
 #define ColorWhite [UIColor whiteColor]

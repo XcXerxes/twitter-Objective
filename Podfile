@@ -9,4 +9,5 @@ target 'twitter-Objective' do
   pod 'AFNetworking'
   pod 'Masonry'
   pod 'JSONModel'
+  pod 'SDCycleScrollView'
 end
