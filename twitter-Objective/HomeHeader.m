@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "SwipeView.h"
 #import "HomeHeaderCell.h"
+#import "Masonry.h"
 
 NSString * const cellId = @"cellId";
 
@@ -21,6 +22,7 @@ UICollectionViewDelegateFlowLayout
 >
 @property (nonatomic, strong) UICollectionView *cateCollectionView;
 @property (nonatomic, copy) NSMutableArray *cateArray;
+
 @end
 
 @implementation HomeHeader
@@ -34,6 +36,7 @@ UICollectionViewDelegateFlowLayout
         [self initCateList];
         // 初始化九宫格
         [self initCateCollectionView];
+        [self initCaptionImage];
     }
     return self;
 }
@@ -50,7 +53,7 @@ UICollectionViewDelegateFlowLayout
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
-    _cateCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 140, self.bounds.size.width, 200) collectionViewLayout: layout];
+    _cateCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 140, self.bounds.size.width, 160) collectionViewLayout: layout];
     _cateCollectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _cateCollectionView.delegate = self;
     _cateCollectionView.dataSource = self;
@@ -82,5 +85,31 @@ UICollectionViewDelegateFlowLayout
 }
 
 // 初始化简要
+-(void)initCaptionImage {
+    UIView *view1 = [UIView new];
+    view1.backgroundColor = [UIColor orangeColor];
+    [self addSubview:view1];
+    __weak typeof(self) wself = self;
+    [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(wself.cateCollectionView.mas_bottom).mas_offset(10);
+        make.left.equalTo(wself.cateCollectionView).mas_offset(15);
+        make.width.mas_offset(240);
+        make.height.mas_offset(120);
+    }];
+    UIView *view2 = [UIView new];
+    view2.backgroundColor = [UIColor purpleColor];
+    [self addSubview:view2];
+    [view2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(view1);
+        make.right.mas_equalTo(wself.cateCollectionView.mas_right).inset(15);
+        make.width.mas_offset(93);
+        make.height.mas_offset(120);
+    }];
+    UIView *views = [UIView new];
+    [self addSubview:views];
+    [views mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }]
+}
 
 @end
