@@ -53,7 +53,7 @@ UICollectionViewDelegateFlowLayout
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
-    _cateCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 140, self.bounds.size.width, 160) collectionViewLayout: layout];
+    _cateCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 140, self.bounds.size.width, 150) collectionViewLayout: layout];
     _cateCollectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _cateCollectionView.delegate = self;
     _cateCollectionView.dataSource = self;
@@ -92,24 +92,46 @@ UICollectionViewDelegateFlowLayout
     __weak typeof(self) wself = self;
     [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(wself.cateCollectionView.mas_bottom).mas_offset(10);
-        make.left.equalTo(wself.cateCollectionView).mas_offset(15);
+        make.left.equalTo(wself.cateCollectionView).mas_offset(10);
         make.width.mas_offset(240);
-        make.height.mas_offset(120);
+        make.height.mas_offset(100);
     }];
     UIView *view2 = [UIView new];
     view2.backgroundColor = [UIColor purpleColor];
     [self addSubview:view2];
     [view2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(view1);
-        make.right.mas_equalTo(wself.cateCollectionView.mas_right).inset(15);
-        make.width.mas_offset(93);
-        make.height.mas_offset(120);
+        make.right.mas_equalTo(wself.cateCollectionView.mas_right).inset(10);
+        make.width.mas_offset(100);
+        make.height.mas_offset(100);
     }];
     UIView *views = [UIView new];
     [self addSubview:views];
     [views mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-    }]
+        make.top.mas_equalTo(view2.mas_bottom).offset(10);
+        make.left.mas_equalTo(view1.mas_left);
+        make.right.mas_equalTo(view2.mas_right);
+        make.width.mas_offset(self.bounds.size.width - 20);
+        make.height.mas_offset(80);
+    }];
+    for (int i = 0; i < 3; i++) {
+//        UIView *btView = [[UIView alloc] initWithFrame:CGRectMake(i *(self.bounds.size.width - 50) /3, 0, (self.bounds.size.width - 30) /3, 80)];
+        UIView *btView = [UIView new];
+        btView.backgroundColor = [UIColor blackColor];
+        [views addSubview:btView];
+        [btView mas_makeConstraints:^(MASConstraintMaker *make) {
+            if (i == 0) {
+                make.left.equalTo(view1);
+            } else if (i == 1) {
+                make.left.mas_offset((self.bounds.size.width - 40)/3 + 10);
+            } else {
+                make.right.equalTo(view2);
+            }
+            // make.left.mas_offset(offsetLeft);
+            make.width.mas_offset((self.bounds.size.width - 40)/3);
+            make.height.mas_offset(80);
+        }];
+    }
 }
 
 @end

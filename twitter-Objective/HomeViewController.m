@@ -10,6 +10,7 @@
 #import "Masonry.h"
 #import "Constants.h"
 #import "HomeHeader.h"
+#import "HomeGeneralCollectionViewCell.h"
 
 NSString * const homeHeaderId = @"homeHeaderId";
 NSString * const homeCellId = @"homeCellId";
@@ -89,7 +90,7 @@ UICollectionViewDataSource
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     [_collectionView registerClass:[HomeHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeHeaderId];
-    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:homeCellId];
+    [_collectionView registerClass:[HomeGeneralCollectionViewCell class] forCellWithReuseIdentifier:homeCellId];
     [self.view addSubview:_collectionView];
     
 }
@@ -99,8 +100,7 @@ UICollectionViewDataSource
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:homeCellId forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor orangeColor];
+    HomeGeneralCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:homeCellId forIndexPath:indexPath];
     return cell;
 }
 
