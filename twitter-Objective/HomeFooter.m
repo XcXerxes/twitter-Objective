@@ -37,6 +37,7 @@ NSString * const homeFooterCellId = @"homeFooterCellId";
 }
 
 -(void) initContainerView {
+    self.backgroundColor = ColorThemeGray;
     _containerView = [UIView new];
     [self addSubview:_containerView];
     __weak typeof(self) wself = self;
@@ -83,12 +84,14 @@ NSString * const homeFooterCellId = @"homeFooterCellId";
 -(void) initCollectionView {
     UICollectionViewFlowLayout *flowLayout = [UICollectionViewFlowLayout new];
     flowLayout.minimumLineSpacing = 15;
-    flowLayout.minimumInteritemSpacing = 1;
+    flowLayout.minimumInteritemSpacing = 0;
     NSLog(@"=======%f", self.bounds.size.width);
-    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 40, self.bounds.size.width - 20, 600) collectionViewLayout:flowLayout];
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 40, self.bounds.size.width - 20, 1344) collectionViewLayout:flowLayout];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
-    _collectionView.backgroundColor = ColorThemeGray;
+    _collectionView.scrollEnabled = NO;
+    // _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _collectionView.backgroundColor = ColorClear;
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:homeFooterCellId];
     [self.containerView addSubview:_collectionView];
 }
@@ -97,7 +100,7 @@ NSString * const homeFooterCellId = @"homeFooterCellId";
     return 8;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake((self.collectionView.bounds.size.width - 10) / 2, 300);
+    return CGSizeMake((self.collectionView.bounds.size.width - 20) / 2, 326);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:homeFooterCellId forIndexPath:indexPath];
@@ -116,7 +119,7 @@ NSString * const homeFooterCellId = @"homeFooterCellId";
     [bodyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(cell.contentView);
         make.width.mas_equalTo(cell.contentView.mas_width);
-        make.height.mas_offset(100);
+        make.height.mas_offset(126);
     }];
     // 设置标题
     UILabel *nameLabel = [UILabel new];
@@ -129,6 +132,44 @@ NSString * const homeFooterCellId = @"homeFooterCellId";
         make.left.right.equalTo(bodyView).inset(5);
         make.width.mas_offset(bodyView.bounds.size.width);
         make.height.mas_offset(30);
+    }];
+    // 设置标签
+    UILabel *tagLabel = [UILabel new];
+    tagLabel.text = @"德云社相声";
+    tagLabel.textColor = ColorThemeBlack;
+    tagLabel.layer.borderColor = [ColorThemeGray CGColor];
+    tagLabel.layer.cornerRadius = 2;
+    tagLabel.layer.masksToBounds = YES;
+    tagLabel.font = [UIFont systemFontOfSize:11];
+    tagLabel.textAlignment = NSTextAlignmentCenter;
+    tagLabel.layer.borderWidth = 1;
+    [bodyView addSubview:tagLabel];
+    [tagLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(nameLabel.mas_bottom).offset(10);
+        make.left.equalTo(nameLabel);
+        make.width.mas_offset(70);
+        make.height.mas_offset(24);
+    }];
+    UIView *lineView = [UIView new];
+    lineView.backgroundColor = ColorThemeGray;
+    [bodyView addSubview:lineView];
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(tagLabel.mas_bottom).offset(10);
+        make.left.right.equalTo(bodyView).inset(5);
+        make.width.mas_offset(bodyView.bounds.size.width);
+        make.height.mas_offset(1);
+    }];
+    
+    UILabel *captionLabel = [UILabel new];
+    captionLabel.text = @"悲剧给人力量，喜剧给人希望。谢谢你们带来了希望。";
+    captionLabel.textColor = ColorThemeBlack;
+    captionLabel.font = [UIFont systemFontOfSize:12];
+    captionLabel.numberOfLines = 2;
+    [bodyView addSubview:captionLabel];
+    [captionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(lineView.mas_bottom).offset(10);
+        make.left.right.equalTo(nameLabel);
+        make.width.mas_offset(bodyView.bounds.size.width);
     }];
     return cell;
 }

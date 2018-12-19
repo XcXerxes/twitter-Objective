@@ -35,6 +35,7 @@ UICollectionViewDataSource
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // 设置navigationItem
+    self.view.backgroundColor = ColorThemeGray;
     [self initNavigationItems];
     // 设置轮播图
     // [self initSwipeView];
@@ -131,7 +132,7 @@ UICollectionViewDataSource
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    return CGSizeMake(ScreenWidth, 700);
+    return CGSizeMake(ScreenWidth, 1408);
 }
 
 /*
