@@ -18,13 +18,12 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"=====home");
         [self initView];
     }
     return self;
 }
 - (void) initView {
-    _iconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed: @""]];
+    _iconImageView = [[UIImageView alloc] initWithImage:[UIImage new]];
     _iconImageView.frame = CGRectMake((self.bounds.size.width/2) - 16, (self.bounds.size.height/2) - 21, 32, 32);
     UIView *cellView = [[UIView alloc] initWithFrame:self.bounds];
     _titleLabel = [UILabel new];

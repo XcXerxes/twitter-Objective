@@ -11,9 +11,11 @@
 #import "Constants.h"
 #import "HomeHeader.h"
 #import "HomeGeneralCollectionViewCell.h"
+#import "HomeFooter.h"
 
 NSString * const homeHeaderId = @"homeHeaderId";
 NSString * const homeCellId = @"homeCellId";
+NSString * const homeFooterId = @"homeFooterId";
 
 @interface HomeViewController ()
 <
@@ -90,13 +92,14 @@ UICollectionViewDataSource
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     [_collectionView registerClass:[HomeHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeHeaderId];
+    [_collectionView registerClass:[HomeFooter class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:homeFooterId];
     [_collectionView registerClass:[HomeGeneralCollectionViewCell class] forCellWithReuseIdentifier:homeCellId];
     [self.view addSubview:_collectionView];
     
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 7;
+    return 3;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -105,16 +108,30 @@ UICollectionViewDataSource
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(ScreenWidth, 800);
+    return CGSizeMake(ScreenWidth, 700);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    HomeHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeHeaderId forIndexPath:indexPath];
-    return header;
+    UICollectionReusableView *supplementView;
+    NSLog(@"kind============%@", kind);
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        HomeHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeHeaderId forIndexPath:indexPath];
+        supplementView = header;
+    }
+    if ([kind isEqualToString:UICollectionElementKindSectionFooter])
+    {
+        HomeFooter *footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:homeFooterId forIndexPath:indexPath];
+        supplementView = footer;
+    }
+    return supplementView;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     return CGSizeMake(ScreenWidth, 500);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    return CGSizeMake(ScreenWidth, 700);
 }
 
 /*
